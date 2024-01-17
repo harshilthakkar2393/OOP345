@@ -1,0 +1,20 @@
+======================================
+ Workshop 8 Part 2
+======================================
+Module : reflect
+-------------------------------------
+Name: Harshil Dineshbhai Thakkar
+Student ID: 160431219
+Student Email: hthakkar8@myseneca.ca
+Date: 26/03/2023
+Section: NEE
+-------------------------------------
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+======================================
+This week I learned how to make program components with quadratic complexity , how to use a smart pointer to move an object and how to create a singleton class . 
+In this workshop we didn't use a unique_ptr. Because of the way the program is designed, it uses the copy constructor which is deleted in the case of a unique_ptr and thus resulting in compilation errors . 
+While upgrading the database class to make use of templates , I had to move all the function definitions to the .h file and make the .cpp file empty . Secondly, I added template<typename T> above class declaration and changed the values array from std::string to T and did the same for all the functions which received a value in parameter . In addition, I had to change the syntax for initializing the ptr . Lastly, I added all the specializations required.
+This class had a resource attribute still it didn't have move and copy operations implemented . I believe it is not a bug as we dont need to implement them since the shared_ptr has its own implementations for copy and move operations. So dynamically allocated memory is still managed properly . 
+Despite Database being a singleton class , we see two constructors and destructors being called . At first this might seem counter intuitive but it's actually valid . This is because the database class is a templated class therefore at compile time , there are two definitions of the class one with the data member of type long long and another with std::string . Therefore there are two different classes but with the same name . so we can only have 1 instance per data type .
+Overall this workshop was very interesting, especially the encryption and decryption part . The only errors I faced were due to my lack of knowledge of the syntax , for which I referred to the notes and previous workshops .
