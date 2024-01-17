@@ -1,0 +1,9 @@
+// Name: Harshil Dineshbhai Thakkar
+// Seneca Student ID: 160431219
+// Seneca email: hthakkar8@myseneca.ca
+// Date of completion: 1-04-2023
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+This course’s final project was very interesting and challenging . ms1 and ms2 were fairly straight forward . I faced a lot of issues with MS3 , mainly in logic building . It took me a lot of time to understand the instructions in the readme file . In order to understand the instructions , I had to reread them multiple times and watch the walkthrough video multiple times . After the instructions were understood , it didn't take much time to come up with a pseudo code and translate it into actual code and test it . It took me a few trails and errors to get it to work . Overall it was a great experience . My only complaint is , the instructions are difficult to understand sometimes . Maybe that’s because I am an international student and English is not my first language but I personally feel that the instructions can be made more clearer and detailed . Overall I am very satisfied with this course and the things I learned this semester .
