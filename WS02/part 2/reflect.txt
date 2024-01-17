@@ -1,0 +1,54 @@
+======================================
+ Workshop 2 Part 2
+======================================
+Module : Reflect
+-------------------------------------
+Name: Harshil Dineshbhai Thakkar
+Student ID: 160431219
+Student Email: hthakkar8@myseneca.ca
+Date: 28/01/2023
+Section: NEE
+-------------------------------------
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+======================================
+This week I learned how to implement move schematics for a class with dynamically allocated resources and how to use the chrono library. Along with that I revised how to read a file , count no of records in a file and implement copy schematics . At the end of this workshop I found out that move operations are much faster than copy operations . To understand the reason, let's first try to understand how each works. 
+
+// copy assignment operator
+    ProteinDatabase &ProteinDatabase::operator=(const ProteinDatabase &rightHand)
+    {
+        if (this != &rightHand)
+        {
+            delete[] sequences;
+            sequences = nullptr;
+            this->sequences = new std::string[rightHand.noOfSequences];
+            noOfSequences = rightHand.noOfSequences;
+            for (int i = 0; i < noOfSequences; i++)
+            {
+                sequences[i] = rightHand.sequences[i];
+            }
+        }
+        return *this;
+    }
+
+    The code above represents a copy assignment operator overload. As we can see ,here we are doing a deep copy . We are deleting previously allocated resources in the current object and then allocating new resources to it and then copying data from the right hand operand. notice , we are not changing or deleting anything in the right operand . Thus by the end of this operation we have two separate copies of the same data . 
+
+// move assignment operator
+    ProteinDatabase &ProteinDatabase::operator=(ProteinDatabase &&rightHand)
+    {
+        if (this != &rightHand)
+        {
+            delete[] sequences;
+            sequences = rightHand.sequences;
+            rightHand.sequences = nullptr;
+            noOfSequences = rightHand.noOfSequences;
+            rightHand.noOfSequences = 0;
+        }
+        return *this;
+    }
+    The code above represents a move assignment operator overload. As we can see ,here we are doing a shallow copy . We are deleting previously allocated resources in the current object and then assigning the object in right operand to left operand and then the right operand to nullptr. notice , we are not allocating any new resources after deleting the original .Thus ,by the end of this we still only have 1 copy of the data and all we have done is rename the object containing the data .So now the left operand pointer points to the object containing data . 
+    Therefore the move operation is much less resource heavy and thus it takes less time to complete the operation. 
+
+Lastly , while doing this workshop I did face many issues , mostly segmentation fault and invalid reading . One of the culprits was the []operator in which I was using the wrong condition .  
+return (this->size() != 0 && size <= this->size() - 1) ? sequences[size] : empty; 
+originally in this line i wasn't adding -1 in the condition which resulted in it being true and therefore the program was trying to access the memory which does not exist . the second reason was , i was using char array as temporary string variable while reading file in 1 arg Constructor. The size of the array was set to 100 and that resulted in a segmentation fault(when the string was being called by main) and changing it to 1000 didn't change the output much . I ended up using std::string and it solved the problem .  
