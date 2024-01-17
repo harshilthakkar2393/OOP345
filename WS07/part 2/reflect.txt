@@ -1,0 +1,22 @@
+======================================
+ Workshop 7 Part 2
+======================================
+Module : reflect
+-------------------------------------
+Name: Harshil Dineshbhai Thakkar
+Student ID: 160431219
+Student Email: hthakkar8@myseneca.ca
+Date: 19/03/2023
+Section: NEE
+-------------------------------------
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+======================================
+This week I learned how to copy data from a file to a stl container , use numeric library to accumulate data values , use Lambda expressions to create custom operations for values in a data set  and use algorithm library to sort data .
+In this workshop , I used for_each for the showGoods function . for_each is like a for loop but much more simplified for a container . we just have to specify where to begin , where to end and what to do with each element using a lambda expression . for_each is ment for tasks like this which requires iterating over each element to perform the exact same operation . Following which , I used accumulate for totaling the stocks and price . accumulate is meant for tasks like this which requires iterating over each element of a container and calculating the sum of elements . I used sort for sortBakery , as the name suggests it sorts the elements of the container as per the lambda expression . Using the lambda expression we can specify which member do we want to use for the sorting and whether we want to sort in ascending or descending order. For the combine function , I used merge . This function is made for operations like this , where we combine two containers into another container . For the inStock function , I used any_of function . This function returns a boolean value based on the condition . It returns true if the specified condition is true for any of (at least 1) element of the container and false otherwise , thus making it perfect for operations like this one where we want to check if any of the items are in stock . Lastly for the outOfStock function , I used the copy_if function as it is meant for tasks like this where we want to copy an element to another container if the specified condition for that element is true .
+Yes, there is a big difference in using list as compared to vector as you cannot randomly access elements from a list but the std::sort function requires this ability . therefore we would need to use a member function of the list called sort for this purpose .
+goods.sort([](const BakedGood &b1, const BakedGood &b2){return b1.description < b2.description; });
+The above code shows how the sort will be implemented if the container is a list .
+sort(goods.begin(), goods.end(), [](const BakedGood &b1, const BakedGood &b2)
+                 { return b1.description < b2.description; });
+The above code shows how sort will be implemented if the container is a vector.

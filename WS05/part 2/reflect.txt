@@ -1,0 +1,22 @@
+Name : Harshil Dineshbhai Thakkar 
+OOP345 NEE 
+StudentID: 160431219
+workshop 5 part2 reflect 
+
+This week’s workshop included a lot of new topics like lambda expressions , functors , function pointers ,observers etc. 
+In this workshop we used both a lambda expression and a functor. Both are called like  normal functions but the biggest difference is in their signature . (as shown below )
+Lambda expression :
+auto fix_price = [&](Book &book) mutable
+Functor :
+void SpellChecker::operator()(std::string &text)
+A lambda expression has a capture list (denoted by []) and the name and return type are optional . In the case of a functor , it is implemented like any other operator overload ( ()operator in this case ). Lambda expressions are better for local scope functions with very simple tasks while functors should be used for more complex tasks .
+The SpellChecker constructor generates an exception when the file is invalid and that exception is handled by main using try catch . Here we are simply printing out an error message . This can be done by directly printing out an error message like:
+if(!file ){}
+else
+{
+cout<<”ERROR: Bad file name !”<<endl;
+} 
+
+The classes Movie and Book use almost identical logic for loading the data from the file  and thus results in duplication of a lot of code . To eliminate this we can create another module like utils and create a more generalized function and then call that function from the respective classes .  This was widely used in OOP244 and is a good solution. 
+Lastly Movie and Book both are instantiated from main using an overloaded constructor . The default constructor is still present but not used (a lot) , thus a question might arise if we need it or not . If the data members are initialized at the time of declaration then it might seem we can skip the default constructor . but if there is an overloaded constructor , then the compiler does not insert an empty one. This can create problems when we try to create an object without initialization as the compiler will look for a default constructor but will not find it  . Thus we atleast need an empty default constructor to avoid this issue . one alternative is to set default argument in the overloaded constructor , then we can avoid having a default constructor. 
+ 

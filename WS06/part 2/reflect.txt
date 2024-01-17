@@ -1,0 +1,31 @@
+======================================
+ Workshop 6 Part 2
+======================================
+Module : reflect
+-------------------------------------
+Name: Harshil Dineshbhai Thakkar
+Student ID: 160431219
+Student Email: hthakkar8@myseneca.ca
+Date: 11/03/2023
+Section: NEE
+-------------------------------------
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+======================================
+This week I learned how to manage polymorphic objects using the vector container  of STL , store a dynamically allocated object into a container , use iterators to iterate over the elements of a container and report and handle exceptions. 
+We were required to deallocate the dynamically allocated memory in the vector because the vector manages the memory of the container but not its elements . In this case the elements were dynamically allocated objects of type person , therefore we had to manually deallocate them . 
+Our current logic for loading data from the file does a fine job of detecting and reporting errors . But right now we only have two types of error messages i.e. cannot open a file and invalid record with the name of the person . We can upgrade the current solution by making our error messages more precise like, “invalid age : age should be a number , but is :<age in the file >”, same for id “invalid id : id should start with <E/S/P> but is <id in the file >” . We can add similar error detection and reporting for other data members to , for eg. “invalid name: name cannot be empty or just spaces ” .  
+In this workshop we used std::list<sdds::Person*>and std::vector<sdds::Person*> to store a collection of persons as pointers and not as std::list<sdds::Person> and std::vector<sdds::Person> because , in order to access derived class , we need a pointer or reference of base class . we cannot do this by value and also we cannot create an instance of abstract base class .  
+Lastly , I didn't face many logical errors in this workshop as I used some logic from previous workshops , like for eg . the logic for loading data from a comma separated file .  I did face some difficulty in the Student constructor as each student had different number of courses and i hardcoded the value for condition in  for loop . for eg. for (int i = 0; i < 3; i++) this is from the employee module as there were only four things to extract and store for each object . To deal with this, I used a flag in the student constructor: for (int i = 0; in && flag; i++) . here , as soon as the number of courses denoted by m_count were stored in the m_courses , the flag was set to false as shown below . 
+ // extracting the courses
+                if (i > 3)
+                {
+
+                    m_courses[k] = proxyString;
+                    k++;
+                    if (k == m_count)
+                    {
+                        flag = false;
+                    }
+                }
+Without this flag , the constructor was trying to store the other persons as courses too . The major issues I faced in this workshop were with spaces in output which I managed to solve at the end . 
