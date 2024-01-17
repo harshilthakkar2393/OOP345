@@ -1,0 +1,21 @@
+
+======================================
+ Workshop 3 Part 2
+======================================
+Module : Reflect
+-------------------------------------
+Name: Harshil Dineshbhai Thakkar
+Student ID: 160431219
+Student Email: hthakkar8@myseneca.ca
+Date: 05/02/2023
+Section: NEE
+-------------------------------------
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+======================================
+
+This week’s workshop revolved around class templates . In my opinion this was the toughest workshop so far in the CPA program . Although the concept of templates is fairly straightforward , the syntax is really confusing . In order to do this workshop I had to read some online articles and watch tutorials in order to understand templates . In the end I was able to successfully complete it . 
+Usually we split a module into .h and .cpp files , but in the case of Collection and Set modules we only created .h files because if we split it into .h and .cpp , we would have to declare template<typename T> before every single function . Just to avoid this we do not split the module . 
+The next Module was Pair which was partly implemented . I added default constructor as Compiler will not create a default constructor since there is already an overloaded constructor . Next I overloaded == and << operators to work with Pair type objects since there are no default definitions for them . and lastly i made the queries getKey and getValue const since we are not intending to change anything and just returning the values . 
+In this workshop we specialized the add function because in real world we tend to neglect minor difference between two numbers and round them and consider them equal. But thats not the case with compiler by default . Thus we need to specialize add for double to manually impliment this property.  
+Lastly , for the class collection we defined the dummy variable outside the class . This is because it is a static variable/ object and thus it is treated as a global scope variable . 

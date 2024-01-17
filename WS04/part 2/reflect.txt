@@ -1,0 +1,71 @@
+======================================
+ Workshop 4 Part 2
+======================================
+Module : Reflect
+-------------------------------------
+Name: Harshil Dineshbhai Thakkar
+Student ID: 160431219
+Student Email: hthakkar8@myseneca.ca
+Date: 12/02/2023
+Section: NEE
+-------------------------------------
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+======================================
+
+This week I learned about different relationships between classes i.e. composition , aggregation and association. One of the toughest part of this workshop was extracting data from the string , after trying few different ways i was finally able to do it . 
+Next major part was the child and confirmOrder modules which included double pointer and relationships which i wasnt famaliar with . Here the relationship between Child and Toy is that of composition where , child is compositor and toy is component . On the other hand ConfirmOrder and Toy have aggregation relationship , where ConfirmOrder is aggregator and Toy is aggregated class . The biggest different in their implimentation is , in Child we did deep copy whereas in ConfirmOrder we did shallow copy . In Child we created and destroyed the toy objects stored in the array whereas in ConfirmOrder we didnt do that (code exmaples are given below ). and lastly , since child and confirmorder are independent , they can be considered to be in association relationship.
+
+
+// copy assignment operator
+    Child &Child::operator=(const Child &rightHand)
+    {
+        if (this != &rightHand)
+        {
+            if (rightHand.toys != nullptr)
+            {
+                for (int i = 0; i < noOfToys; i++)
+                {
+                    delete this->toys[i];
+                    toys[i] = nullptr;
+                }
+                delete[] toys;
+                toys = nullptr;
+                this->toys = new const Toy *[rightHand.noOfToys]();
+                for (int i = 0; i < rightHand.noOfToys; i++)
+                {
+                    this->toys[i] = new Toy(*rightHand.toys[i]);
+                }
+            }
+            this->noOfToys = rightHand.noOfToys;
+            this->name = rightHand.name;
+            this->age = rightHand.age;
+        }
+        return *this;
+    }
+copy assignment operator in child module . note that here we are doing a deep copy.
+
+
+ // copy assignment operator
+    ConfirmOrder &ConfirmOrder::operator=(const ConfirmOrder &rightHand)
+    {
+        if (this != &rightHand)
+        {
+            if (rightHand.toys != nullptr)
+            {
+                delete[] toys;
+                toys = nullptr;
+                this->toys = new const Toy *[rightHand.noOfToys];
+                for (int i = 0; i < rightHand.noOfToys; i++)
+                {
+                    this->toys[i] = rightHand.toys[i];
+                }
+            }
+            this->noOfToys = rightHand.noOfToys;
+        }
+        return *this;
+    }
+
+copy assignment operator in ConfirmOrder . note that we just doing shallow copy. 
+
+
